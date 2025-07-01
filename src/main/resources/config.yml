@@ -1,0 +1,11 @@
+# select between "manual" and "carousel"
+mode: manual
+# icon to display when in manual mode
+current-icon: default.png
+
+# list of icons to display when in carousel mode
+icon-list:
+  - default.png
+
+# interval in seconds for carousel mode
+interval: 10

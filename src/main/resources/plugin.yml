@@ -1,0 +1,20 @@
+name: DynamicServerIcon
+version: 1.0
+main: fr.chaun14.dynamicservericon.DynamicServerIcon
+api-version: 1.20
+
+commands:
+  dynicon:
+    description: Manage server icon
+    usage: /dynicon <subcommand>
+    permission: dynamicservericon.admin
+
+  icon:
+    description: Manage server icon
+    usage: /dynicon <subcommand>
+    permission: dynamicservericon.admin
+
+permissions:
+  dynamicservericon.admin:
+    description: Access to all DynamicServerIcon commands
+    default: op
