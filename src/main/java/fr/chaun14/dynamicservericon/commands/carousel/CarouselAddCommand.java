@@ -49,8 +49,11 @@ public class CarouselAddCommand implements SubCommand, TabCompletableSubCommand 
         // if the mode is manual we prompt the user to switch to carousel mode
         if (plugin.getConfig().getString("mode", "manual").equals("manual"))
             enableMessage = "§eYou are currently in manual mode. To start the carousel, use /icon mode carousel.";
+        else
+            plugin.restartCarousel(); // Restart carousel to apply changes
 
         sender.sendMessage("§aIcon added to carousel: " + filename + ". " + enableMessage);
+
     }
 
     @Override
