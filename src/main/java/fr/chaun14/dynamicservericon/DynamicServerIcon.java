@@ -23,6 +23,7 @@ public class DynamicServerIcon extends JavaPlugin {
 
     public IconCarousel iconCarousel;
     private DynIconLogger logger;
+    private PingListener pingListener;
 
     // startcarousel function
     public void startCarousel(List<String> icons, int interval) {
@@ -102,10 +103,11 @@ public class DynamicServerIcon extends JavaPlugin {
         getCommand("icon").setExecutor(commandListener);
         getCommand("icon").setTabCompleter(new IconTabCompleter(commandListener));
 
-        getServer().getPluginManager().registerEvents(new PingListener(this), this);
+        this.pingListener = new PingListener(this);
+        getServer().getPluginManager().registerEvents(pingListener, this);
         getDynLogger().info("DynamicServerIcon enabled!");
 
-        int pluginId = 26327; // <-- Replace with the id of your plugin!
+        int pluginId = 26327;
         Metrics metrics = new Metrics(this, pluginId);
 
     }
@@ -131,6 +133,10 @@ public class DynamicServerIcon extends JavaPlugin {
 
     public boolean getDebug() {
         return DEBUG;
+    }
+
+    public PingListener getPingListener() {
+        return pingListener;
     }
 
 }

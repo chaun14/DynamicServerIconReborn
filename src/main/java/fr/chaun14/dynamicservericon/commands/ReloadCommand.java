@@ -17,6 +17,9 @@ public class ReloadCommand implements SubCommand {
     public void execute(CommandSender sender, String[] args) {
         plugin.reloadConfig();
 
+        // clear the icon cache from the PingListener
+        plugin.getPingListener().clearAllCache();
+
         String mode = plugin.getConfig().getString("mode", "manual").toLowerCase();
 
         if (mode.equals("carousel")) {
