@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.List;
 
-import org.bukkit.command.Command;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.chaun14.dynamicservericon.commands.IconTabCompleter;
@@ -109,6 +108,17 @@ public class DynamicServerIcon extends JavaPlugin {
 
         int pluginId = 26327;
         Metrics metrics = new Metrics(this, pluginId);
+
+        // metrics for plugin mode
+        metrics.addCustomChart(new Metrics.SimplePie("mode", () -> {
+            return getConfig().getString("mode", "manual");
+        }));
+
+        // metrics for icon count
+        metrics.addCustomChart(new Metrics.SimplePie("icon_count", () -> {
+            List<String> icons = getConfig().getStringList("icon-list");
+            return String.valueOf(icons.size());
+        }));
 
     }
 

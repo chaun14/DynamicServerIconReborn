@@ -6,7 +6,6 @@ import fr.chaun14.dynamicservericon.commands.TabCompletableSubCommand;
 
 import org.bukkit.command.CommandSender;
 
-import java.io.File;
 import java.util.List;
 
 public class CarouselRemoveCommand implements SubCommand, TabCompletableSubCommand {
